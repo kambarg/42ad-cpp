@@ -1,11 +1,23 @@
-# Variables
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/10/29 17:00:14 by gkambarb          #+#    #+#              #
+#    Updated: 2025/10/29 17:01:34 by gkambarb         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = megaphone
-SRC = megaphone.cpp
-OBJ = $(SRC:.cpp=.o)
+
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-# Rules
+SRC = megaphone.cpp
+OBJ = $(SRC:.cpp=.o)
+
 all: $(NAME)
 
 $(NAME): $(OBJ)
@@ -22,5 +34,4 @@ fclean: clean
 
 re: fclean all
 
-# Phony targets
 .PHONY: all clean fclean re
