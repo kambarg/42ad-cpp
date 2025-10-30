@@ -6,7 +6,7 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:11:30 by gkambarb          #+#    #+#             */
-/*   Updated: 2025/10/29 17:58:32 by gkambarb         ###   ########.fr       */
+/*   Updated: 2025/10/30 14:50:12 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,34 @@
 class Contact
 {
   private:
-	std::string first_name;
-	std::string last_name;
-	std::string nickname;
-	std::string phone_number;
-	std::string darkest_secret;
+    std::string firstName;
+    std::string lastName;
+    std::string nickname;
+    std::string phoneNumber;
+    std::string darkestSecret;
 
   public:
-	Contact();
-	~Contact();
+    Contact();
+    ~Contact();
 
-	Contact(std::string first_name, std::string last_name, std::string nickname,
-		std::string phone_number, std::string darkest_secret);
+    // Setters
+    void setFirstName(const std::string &firstName);
+    void setLastName(const std::string &lastName);
+    void setNickname(const std::string &nickname);
+    void setPhoneNumber(const std::string &phoneNumber);
+    void setDarkestSecret(const std::string &darkestSecret);
 
-	// member functions
+    // Getters
+    std::string getFirstName() const;
+    std::string getLastName() const;
+    std::string getNickname() const;
+    std::string getPhoneNumber() const;
+    std::string getDarkestSecret() const;
+
+    // Method to set all fields at once
+    void setAllFields(const std::string &firstName, const std::string &lastName,
+                      const std::string &nickname, const std::string &phoneNumber,
+                      const std::string &darkestSecret);
 };
 
 #endif
