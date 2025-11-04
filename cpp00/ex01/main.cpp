@@ -6,7 +6,7 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 14:23:50 by gkambarb          #+#    #+#             */
-/*   Updated: 2025/10/30 15:03:42 by gkambarb         ###   ########.fr       */
+/*   Updated: 2025/11/04 09:54:46 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int	main(void)
 
 		if (command == "ADD")
 			phonebook.addContact();
-		// else if (command == "SEARCH")
-		// 	phonebook.searchContact();
+		else if (command == "SEARCH")
+			phonebook.searchContact();
 		else if (command == "EXIT")
 			break ;
 		else

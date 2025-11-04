@@ -6,7 +6,7 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 11:55:36 by gkambarb          #+#    #+#             */
-/*   Updated: 2025/10/30 15:08:01 by gkambarb         ###   ########.fr       */
+/*   Updated: 2025/11/04 09:54:33 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,62 @@ void PhoneBook::addContact()
     }
 
     std::cout << "Contact added successfully!" << std::endl;
+}
+
+static std::string truncateString(const std::string &str)
+{
+    if (str.length() > 10)
+        return str.substr(0, 9) + ".";
+    return str;
+}
+
+void PhoneBook::searchContact() const
+{
+    if (contactCount == 0)
+    {
+        std::cout << "Phonebook is empty!" << std::endl;
+        return;
+    }
+
+    // Display header
+    std::cout << std::setw(10) << std::right << "Index" << "|";
+    std::cout << std::setw(10) << std::right << "First Name" << "|";
+    std::cout << std::setw(10) << std::right << "Last Name" << "|";
+    std::cout << std::setw(10) << std::right << "Nickname" << std::endl;
+
+    // Display all contacts
+    for (int i = 0; i < contactCount; i++)
+    {
+        std::cout << std::setw(10) << std::right << i << "|";
+        std::cout << std::setw(10) << std::right << truncateString(contacts[i].getFirstName()) << "|";
+        std::cout << std::setw(10) << std::right << truncateString(contacts[i].getLastName()) << "|";
+        std::cout << std::setw(10) << std::right << truncateString(contacts[i].getNickname()) << std::endl;
+    }
+
+    // Prompt for index
+    std::cout << "Enter index to display: ";
+    std::string input;
+    std::getline(std::cin, input);
+
+    // Validate input
+    if (input.empty() || input.length() > 1 || !isdigit(input[0]))
+    {
+        std::cout << "Invalid index!" << std::endl;
+        return;
+    }
+
+    int index = input[0] - '0';
+
+    if (index < 0 || index >= contactCount)
+    {
+        std::cout << "Index out of range!" << std::endl;
+        return;
+    }
+
+    // Display full contact details
+    std::cout << "First Name: " << contacts[index].getFirstName() << std::endl;
+    std::cout << "Last Name: " << contacts[index].getLastName() << std::endl;
+    std::cout << "Nickname: " << contacts[index].getNickname() << std::endl;
+    std::cout << "Phone Number: " << contacts[index].getPhoneNumber() << std::endl;
+    std::cout << "Darkest Secret: " << contacts[index].getDarkestSecret() << std::endl;
 }
