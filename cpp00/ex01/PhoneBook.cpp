@@ -6,21 +6,17 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 11:55:36 by gkambarb          #+#    #+#             */
-/*   Updated: 2025/11/04 10:16:15 by gkambarb         ###   ########.fr       */
+/*   Updated: 2025/11/04 22:39:36 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook() : contactCount(0), nextIndex(0)
-{
-    std::cout << "...PhoneBook default constructor called..." << std::endl;
-}
+{}
 
 PhoneBook::~PhoneBook()
-{
-    std::cout << "...PhoneBook destructor called..." << std::endl;
-}
+{}
 
 void PhoneBook::addContact()
 {
@@ -42,8 +38,6 @@ void PhoneBook::addContact()
     std::cout << "Enter phone number: ";
     std::getline(std::cin, phoneNumber);
     if (phoneNumber.empty()) { std::cout << "Field cannot be empty.\n"; return; }
-    
-    // Validate phone number contains only digits
     for (size_t i = 0; i < phoneNumber.length(); i++)
     {
         if (!isdigit(phoneNumber[i]))
@@ -57,7 +51,6 @@ void PhoneBook::addContact()
     std::getline(std::cin, darkestSecret);
     if (darkestSecret.empty()) { std::cout << "Field cannot be empty.\n"; return; }
 
-    // Set all fields at once
     newContact.setAllFields(firstName, lastName, nickname, phoneNumber, darkestSecret);
 
     // Add the new contact to the phonebook
@@ -136,7 +129,6 @@ void PhoneBook::searchContact() const
     }
 
     int index = input[0] - '0';
-
     if (index < 0 || index >= contactCount)
     {
         std::cout << "Index out of range!" << std::endl;
