@@ -6,12 +6,13 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:02:11 by gkambarb          #+#    #+#             */
-/*   Updated: 2025/10/29 17:30:04 by gkambarb         ###   ########.fr       */
+/*   Updated: 2025/11/04 09:14:55 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cctype>
+#include <string>
 
 int main(int argc, char **argv) 
 {
@@ -23,9 +24,10 @@ int main(int argc, char **argv)
     {
         for (int i = 1; i < argc; i++) 
         {
-            for (int j = 0; argv[i][j] != '\0'; j++) 
+            std::string str = argv[i];
+            for (size_t j = 0; j < str.length(); j++) 
             {
-                std::cout << (char)std::toupper(argv[i][j]);
+                std::cout << (char)std::toupper(str[j]);
             }
         }
         std::cout << std::endl;
