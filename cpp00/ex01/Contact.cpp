@@ -6,17 +6,23 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:48:16 by gkambarb          #+#    #+#             */
-/*   Updated: 2025/10/30 14:51:04 by gkambarb         ###   ########.fr       */
+/*   Updated: 2025/11/04 22:02:41 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
 // Constructor
-Contact::Contact() {}
+Contact::Contact()
+{
+    std::cout << "...Contact default constructor called..." << std::endl;
+}
 
 // Destructor
-Contact::~Contact() {}
+Contact::~Contact()
+{
+    std::cout << "...Contact destructor called..." << std::endl;
+}
 
 // Setters
 void Contact::setFirstName(const std::string &firstName) {
