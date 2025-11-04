@@ -6,7 +6,7 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 11:55:46 by gkambarb          #+#    #+#             */
-/*   Updated: 2025/10/30 14:38:39 by gkambarb         ###   ########.fr       */
+/*   Updated: 2025/11/04 10:16:19 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class PhoneBook
 	static const int MAX_CONTACTS = 8;
 	Contact contacts[MAX_CONTACTS];
 	int contactCount;
+	int nextIndex;
 
   public:
 	PhoneBook();

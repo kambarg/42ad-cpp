@@ -6,13 +6,13 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 11:55:36 by gkambarb          #+#    #+#             */
-/*   Updated: 2025/11/04 09:54:33 by gkambarb         ###   ########.fr       */
+/*   Updated: 2025/11/04 10:16:15 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook() : contactCount(0)
+PhoneBook::PhoneBook() : contactCount(0), nextIndex(0)
 {
     std::cout << "...PhoneBook default constructor called..." << std::endl;
 }
@@ -42,6 +42,16 @@ void PhoneBook::addContact()
     std::cout << "Enter phone number: ";
     std::getline(std::cin, phoneNumber);
     if (phoneNumber.empty()) { std::cout << "Field cannot be empty.\n"; return; }
+    
+    // Validate phone number contains only digits
+    for (size_t i = 0; i < phoneNumber.length(); i++)
+    {
+        if (!isdigit(phoneNumber[i]))
+        {
+            std::cout << "Phone number must contain only digits (0-9).\n";
+            return;
+        }
+    }
 
     std::cout << "Enter darkest secret: ";
     std::getline(std::cin, darkestSecret);
@@ -53,16 +63,31 @@ void PhoneBook::addContact()
     // Add the new contact to the phonebook
     if (contactCount < MAX_CONTACTS)
     {
-        contacts[contactCount] = newContact;
+        contacts[nextIndex] = newContact;
+        nextIndex = (nextIndex + 1) % MAX_CONTACTS;
         contactCount++;
     }
     else
     {
-        for (int i = 1; i < MAX_CONTACTS; i++)
+        std::cout << "\nWARNING: Phonebook is full (8 contacts)!" << std::endl;
+        std::cout << "Saving this contact will erase the oldest entry: " << std::endl;
+        std::cout << "  First Name: " << contacts[nextIndex].getFirstName() << std::endl;
+        std::cout << "  Last Name: " << contacts[nextIndex].getLastName() << std::endl;
+        std::cout << "  Nickname: " << contacts[nextIndex].getNickname() << std::endl;
+        std::cout << "Do you want to continue? (yes/no): ";
+        
+        std::string confirmation;
+        std::getline(std::cin, confirmation);
+        
+        if (confirmation != "yes")
         {
-            contacts[i - 1] = contacts[i];
+            std::cout << "Contact not saved." << std::endl;
+            return;
         }
-        contacts[MAX_CONTACTS - 1] = newContact;
+        
+        // Replace the oldest contact (circular buffer)
+        contacts[nextIndex] = newContact;
+        nextIndex = (nextIndex + 1) % MAX_CONTACTS;
     }
 
     std::cout << "Contact added successfully!" << std::endl;
