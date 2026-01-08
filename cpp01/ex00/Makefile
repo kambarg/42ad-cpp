@@ -6,7 +6,7 @@
 #    By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/06 12:58:29 by gkambarb          #+#    #+#              #
-#    Updated: 2026/01/08 13:55:54 by gkambarb         ###   ########.fr        #
+#    Updated: 2026/01/08 14:33:17 by gkambarb         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -16,7 +16,9 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = 	main.cpp \
-		Zombie.cpp
+		Zombie.cpp \
+		newZombie.cpp \
+		randomChump.cpp
 		
 OBJ = $(SRC:.cpp=.o)
 
