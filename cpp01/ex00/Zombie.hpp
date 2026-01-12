@@ -6,7 +6,7 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:11:30 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/01/12 12:07:02 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/01/12 14:46:47 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -22,7 +22,7 @@ class Zombie
     std::string name;
     
   public:
-    Zombie( std::string given_name );
+    Zombie( std::string input_name );
     ~Zombie();
 
     void announce( void );
