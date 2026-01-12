@@ -6,7 +6,7 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 12:58:08 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/01/08 14:39:33 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/01/12 12:09:45 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -14,11 +14,8 @@
 
 int main(void)
 {
-    Zombie zombie0;
-    
-    
-    // Using Zombie class methods
-    zombie0.setName( "Zombie Null" );
+    // Creating Zombie on the stack
+    Zombie zombie0( "Zombie Null" );
     zombie0.announce();
 
     // Creating Zombie on the stack
