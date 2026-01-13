@@ -6,13 +6,13 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:48:16 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/01/12 15:24:07 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/01/13 10:04:03 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #include "Zombie.hpp"
 
-// Default Constructor
+// Constructor
 Zombie::Zombie() : name("Unknown")
 {}
 

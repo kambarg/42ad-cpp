@@ -6,11 +6,12 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 14:52:56 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/01/12 15:06:13 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/01/13 10:00:36 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #include "Zombie.hpp"
+#include <sstream>
 
 Zombie* zombieHorde( int N, std::string name )
 {
