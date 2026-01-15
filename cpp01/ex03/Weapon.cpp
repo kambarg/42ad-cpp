@@ -6,7 +6,7 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 17:26:30 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/01/16 01:37:34 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/01/16 03:25:19 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,7 @@ Weapon::~Weapon()
 {}
 
 // Member Functions
-const std::string& Weapon::getType() const 
-{ 
-    return type; 
-}
+const std::string &Weapon::getType() const 
+{ return type; }
 
-void Weapon::setType(const std::string& newType) 
-{ 
-    type = newType; 
-}
+void Weapon::setType(const std::string &newType) { type = newType; }
