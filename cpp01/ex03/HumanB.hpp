@@ -6,16 +6,16 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 23:34:39 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/01/16 03:15:52 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/01/17 15:10:42 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HUMANB_HPP
 #define HUMANB_HPP
 
-#include "Weapon.hpp"
+# include "Weapon.hpp"
 
-class HumanB 
+class HumanB
 {
     private:
         std::string name;

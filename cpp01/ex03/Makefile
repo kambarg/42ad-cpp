@@ -6,7 +6,7 @@
 #    By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/13 10:13:49 by gkambarb          #+#    #+#              #
-#    Updated: 2026/01/15 23:06:00 by gkambarb         ###   ########.fr        #
+#    Updated: 2026/01/17 15:27:49 by gkambarb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,4 +38,10 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+valgrind: $(NAME)
+	valgrind --leak-check=full \
+	         --show-leak-kinds=all \
+	         --track-origins=yes \
+	         ./$(NAME)
+
+.PHONY: all clean fclean re valgrind
