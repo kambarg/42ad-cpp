@@ -6,14 +6,15 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 23:34:39 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/01/17 15:10:42 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/01/19 14:03:05 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HUMANB_HPP
 #define HUMANB_HPP
 
-# include "Weapon.hpp"
+#include "Weapon.hpp"
+#include <string>
 
 class HumanB
 {

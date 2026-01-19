@@ -6,7 +6,7 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 23:33:42 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/01/17 15:18:42 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/01/19 14:02:36 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define HUMANA_HPP
 
 #include "Weapon.hpp"
+#include <string>
 
 class HumanA
 {
@@ -25,7 +26,7 @@ class HumanA
         HumanA(const std::string& humanName, Weapon& humanWeapon);
         ~HumanA();
 
-        void attack() const;
+  void attack() const;
 };
 
 #endif

@@ -6,14 +6,13 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 17:26:25 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/01/17 15:09:09 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/01/19 14:01:56 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WEAPON_HPP
 #define WEAPON_HPP
 
-#include <iostream>
 #include <string>
 
 class Weapon
