@@ -6,14 +6,13 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 15:30:00 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/01/20 14:37:46 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/01/20 15:03:09 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #include "FileReplacer.hpp"
 #include <fstream>
 #include <iostream>
-#include <sstream>
 
 // Constructor
 FileReplacer::FileReplacer(const std::string& file, const std::string& search,
@@ -38,11 +37,14 @@ std::string FileReplacer::readFile()
         return "";
     }
 
-    std::stringstream buffer;
-    buffer << inputFile.rdbuf();
-    inputFile.close();
+    std::string content;
+    char c;
 
-    return buffer.str();
+    while (inputFile.get(c))
+        content += c;
+
+    inputFile.close();
+    return content;
 }
 
 // Write content to output file
@@ -93,7 +95,6 @@ bool FileReplacer::execute()
 
     if (content.empty() && !filename.empty())
     {
-        // Check if file was successfully opened but empty
         std::ifstream testFile(filename.c_str());
         if (!testFile.is_open())
             return false;
