@@ -6,7 +6,7 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 15:30:00 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/01/23 12:21:45 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/01/23 12:33:22 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -26,24 +26,21 @@ FileReplacer::FileReplacer(const std::string& file, const std::string& search,
 FileReplacer::~FileReplacer()
 {}
 
-// Execute the replacement operation
+// Execute the replacement
 bool FileReplacer::execute()
 {
-    // Read input file
     std::ifstream inputFile(filename.c_str());
     if (!inputFile.is_open())
     {
         std::cerr << "Error: Could not open file '" << filename << "'" << std::endl;
         return false;
     }
-
     std::string content;
     char c;
     while (inputFile.get(c))
         content += c;
     inputFile.close();
 
-    // Replace all occurrences of s1 with s2
     std::string result;
     if (!s1.empty())
     {
@@ -61,17 +58,14 @@ bool FileReplacer::execute()
     else
         result = content;
 
-    // Write to output file
     std::string outputFilename = filename + ".replace";
     std::ofstream outputFile(outputFilename.c_str());
-
     if (!outputFile.is_open())
     {
         std::cerr << "Error: Could not create file '" << outputFilename << "'"
                   << std::endl;
         return false;
     }
-
     outputFile << result;
     outputFile.close();
 
