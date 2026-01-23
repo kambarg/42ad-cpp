@@ -6,7 +6,7 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 15:30:00 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/01/20 13:28:58 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/01/23 12:21:52 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -21,10 +21,6 @@ class FileReplacer
         std::string filename;
         std::string s1;
         std::string s2;
-
-        std::string readFile();
-        bool writeFile(const std::string& content);
-        std::string replaceAll(const std::string& content);
 
     public:
         FileReplacer(const std::string& file, const std::string& search,
