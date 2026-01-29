@@ -6,7 +6,7 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 15:30:00 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/01/23 12:33:22 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/01/29 13:40:49 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -36,9 +36,13 @@ bool FileReplacer::execute()
         return false;
     }
     std::string content;
-    char c;
-    while (inputFile.get(c))
-        content += c;
+    std::string line;
+    while (std::getline(inputFile, line))
+    {
+        content += line;
+        if (!inputFile.eof())
+            content += '\n';
+    }
     inputFile.close();
 
     std::string result;
