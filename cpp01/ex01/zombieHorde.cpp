@@ -6,7 +6,7 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 14:52:56 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/01/26 18:49:44 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/01/30 11:11:33 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -15,9 +15,14 @@
 
 Zombie *zombieHorde(int N, std::string name) 
 {
-  if (N <= 0 || N >= 10000)
+  if (N <= 0)
   {
-    std::cout << "Cannot create horde: N must be greater than 0 and less than 10000." << std::endl; 
+    std::cout << "Cannot create horde: N shouldn´t be negative or zero." << std::endl; 
+    return NULL;
+  }
+  else if (N >= 1000000)
+  {
+    std::cout << "Cannot create horde: N is too large and may cause bad allocation." << std::endl; 
     return NULL;
   }
   
