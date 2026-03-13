@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
@@ -6,12 +6,12 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/22 20:20:30 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/02/27 02:46:38 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/03/13 15:06:30 by gkambarb         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "Fixed.hpp"
-#include <iostream>
+#include <iostream> 
 #include <cmath> // for roundf
 
 // default constructor
@@ -61,33 +61,34 @@ Fixed::~Fixed()
 	
 }
 
-// other member functios
+// Return the raw value of fixed
 int Fixed::getRawBits( void) const
 {
 	return (this->fp_num);
 }
 
+// Set raw value of fixed
 void Fixed::setRawBits (int const raw)
 {
 	std::cout << "setRawBits member function called" << std::endl;
 	this->fp_num = raw;
 }
 
-// Convert fixed-point to float
+// Convert fixed to float
 float Fixed::toFloat( void ) const
 {
 	// Divide by 256 to get the float value
 	return (static_cast<float>(this->fp_num) / (1 << frac_bits)); 
 }
 
-// Convert fixed-point to int
+// Convert fixed to int
 int Fixed::toInt( void ) const
 {
 	// Shift right to get the integer part
 	return (this->fp_num >> frac_bits);
 }
 
-// Overload insertion operator
+// Overload insertion (<<) operator for Fixed class
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
 {
 	out << fixed.toFloat();
