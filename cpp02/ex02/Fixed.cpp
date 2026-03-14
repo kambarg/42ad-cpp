@@ -6,7 +6,7 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/22 20:20:30 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/03/13 15:06:30 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/03/14 14:56:44 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ Fixed::Fixed()
 	this->fp_num = 0;
 }
 
-// constructor
+// int constructor
 Fixed::Fixed(const int n)
 {
 	std::cout << "Int constructor called" << std::endl;
 	this->fp_num = n << frac_bits; // Shift left to store as fixed-point
 }
 
-// constructor
+// float constructor
 Fixed::Fixed(const float f)
 {
 	std::cout << "Float constructor called" << std::endl;
@@ -58,12 +58,12 @@ Fixed& Fixed::operator=(const Fixed& other)
 Fixed::~Fixed()
 {
 	std::cout << "Destructor called" << std::endl;
-	
 }
 
 // Return the raw value of fixed
 int Fixed::getRawBits( void) const
 {
+	std::cout << "getRawBits member function called" << std::endl;
 	return (this->fp_num);
 }
 
@@ -77,25 +77,17 @@ void Fixed::setRawBits (int const raw)
 // Convert fixed to float
 float Fixed::toFloat( void ) const
 {
-	// Divide by 256 to get the float value
 	return (static_cast<float>(this->fp_num) / (1 << frac_bits)); 
 }
 
 // Convert fixed to int
 int Fixed::toInt( void ) const
 {
-	// Shift right to get the integer part
 	return (this->fp_num >> frac_bits);
 }
 
-// Overload insertion (<<) operator for Fixed class
-std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
-{
-	out << fixed.toFloat();
-	return out;
-}
-
 // Comparison operators
+// n << 8 <=> n*256 => same order for positive and negative nums
 bool Fixed::operator>(const Fixed& other) const
 {
 	return (this->fp_num > other.fp_num);
@@ -127,6 +119,7 @@ bool Fixed::operator!=(const Fixed& other) const
 }
 
 // Arithmetic operators
+// a.fp_num + b.fp_num = (a*256) + (b*256) = (a+b)*256
 Fixed Fixed::operator+(const Fixed& other) const
 {
 	Fixed result;
@@ -141,6 +134,9 @@ Fixed Fixed::operator-(const Fixed& other) const
 	return result;
 }
 
+// a.fp_num * b.fp_num = (a*256) * (b*256) = (a*b)*256*256 - need only one 256
+// => divide by 256 <=> (>> 8 bits)
+// static_cast<long> is room for intermediate calculations
 Fixed Fixed::operator*(const Fixed& other) const
 {
 	Fixed result;
@@ -154,6 +150,10 @@ Fixed Fixed::operator/(const Fixed& other) const
 	result.fp_num = static_cast<int>((static_cast<long>(this->fp_num) << frac_bits) / other.fp_num);
 	return result;
 }
+
+// fp_num=0, represented value=0/256=0
+// fp_num++ => fp_num=1, rep_value=1/256=0.00390625 (epsilon)
+// ...
 
 // Pre-increment: ++x
 Fixed& Fixed::operator++(void)
@@ -212,4 +212,11 @@ const Fixed& Fixed::max(const Fixed& a, const Fixed& b)
 	if (a > b)
 		return a;
 	return b;
+}
+
+// Overload insertion (<<) operator for Fixed objects
+std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
+{
+	out << fixed.toFloat();
+	return out;
 }

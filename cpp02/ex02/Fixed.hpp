@@ -6,7 +6,7 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/22 20:20:26 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/03/13 14:33:37 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/03/14 14:03:58 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,18 @@
 # define FIXED_HPP
 
 #include <iostream>
+ 
+// comparison, arithmetic, increment/decrement operators:
+//  - Public member functios (belong to the object)
+//  - operator overloading (same operator, diff parameters)
+
+// min, max:
+// - Public static (belong to the class, not object) member functions
+// - function overloading (same function name, diff parameters)
+
+// stream insertion operator (<<)
+//  - Free function as returns reference to ostream& object
+//  - operator overloading
 
 class Fixed
 {
@@ -31,8 +43,8 @@ class Fixed
 		
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
-		float toFloat( void ) const;
 		int toInt( void ) const;
+		float toFloat( void ) const;
 
 		// Comparison operators
 		bool operator>(const Fixed& other) const;
@@ -61,6 +73,7 @@ class Fixed
 		static const Fixed& max(const Fixed& a, const Fixed& b);
 };
 
+// Stream insertion operator free function
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
 
 #endif
