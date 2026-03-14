@@ -6,7 +6,7 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/22 20:20:26 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/03/13 14:33:37 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/03/14 11:46:16 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ class Fixed
 		
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );		
-		float toFloat( void ) const;          // function fixed -> float
 		int toInt( void ) const;              // function fixed -> int
-
+		float toFloat( void ) const;          // function fixed -> float
 };
 
+// free function (as it returns ostream& object)
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
 
 #endif
