@@ -28,14 +28,14 @@ int main()
     std::cout << std::endl << "=== Repair ===" << std::endl;
     b.beRepaired(4);
 
-    std::cout << std::endl << "=== Disabling damage ===" << std::endl;
+    std::cout << std::endl << "=== Disable ===" << std::endl;
     b.takeDamage(20);
     b.takeDamage(1);
     b.beRepaired(5);
 
     std::cout << std::endl << "=== Energy drain ===" << std::endl;
     ClapTrap c("Caaaand");
-    for (int i = 0; i < 11; i++)
+    for (int i = 0; i < 20; i++)
         c.attack("target");
 
     std::cout << std::endl << "=== Copy ===" << std::endl;
