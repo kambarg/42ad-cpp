@@ -6,7 +6,7 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 12:57:25 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/03/22 00:10:14 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/03/29 00:26:10 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,13 @@ int main()
     const Animal* meta = new Animal();
     const Animal* j = new Dog();
     const Animal* i = new Cat();
+    
     std::cout << j->getType() << std::endl;
     std::cout << i->getType() << std::endl;
     i->makeSound();
     j->makeSound();
     meta->makeSound();
+    
     delete meta;
     delete j;
     delete i;
