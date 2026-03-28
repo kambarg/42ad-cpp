@@ -6,7 +6,7 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 12:54:50 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/03/21 12:54:52 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/03/28 14:43:41 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Animal
 		virtual ~Animal();
 
 		virtual void makeSound() const;
-		std::string getType() const;
+		const std::string& getType() const;
 };
 
 #endif
