@@ -6,7 +6,7 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/22 00:36:36 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/03/22 00:36:38 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/03/25 00:07:51 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,12 @@ void Dog::makeSound() const
     std::cout << "Dog: Woof! Woof!" << std::endl;
 }
 
-Brain* Dog::getBrain() const
+Brain* Dog::getBrain()
+{
+    return brain;
+}
+
+const Brain* Dog::getBrain() const
 {
     return brain;
 }
