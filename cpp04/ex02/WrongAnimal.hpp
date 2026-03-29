@@ -6,7 +6,7 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 12:57:48 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/03/21 12:57:50 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/03/29 17:51:27 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class WrongAnimal
 		WrongAnimal& operator=(const WrongAnimal& other);
 		~WrongAnimal();
 
-		void makeSound() const;
+		virtual void makeSound() const = 0;
 		const std::string& getType() const;
 };
 

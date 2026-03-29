@@ -6,7 +6,7 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/21 12:58:04 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/03/21 12:58:06 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/03/30 01:35:07 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class WrongCat : public WrongAnimal
 		WrongCat& operator=(const WrongCat& other);
 		~WrongCat();
 
-		void makeSound() const;
+		//void makeSound() const;
 };
 
 #endif
