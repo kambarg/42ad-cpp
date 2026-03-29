@@ -41,35 +41,45 @@ int main()
     for (int k = 0; k < size; k++)
         delete animals[k];
 
-    std::cout << std::endl << "=== Deep copy test (Dog) ===" << std::endl;
+    std::cout << std::endl << "=== Deep copy: Dog (copy constructor) ===" << std::endl;
+    std::cout << "Dog/Cat must allocate a new Brain on copy — not share the pointer." << std::endl;
     Dog dog1;
     dog1.getBrain()->ideas[0] = "chase the cat";
     dog1.getBrain()->ideas[1] = "eat food";
 
     Dog dog2(dog1);
+    std::cout << "dog1.brain address: " << dog1.getBrain() << std::endl;
+    std::cout << "dog2.brain address: " << dog2.getBrain() << std::endl;
+    std::cout << "(Different addresses => each Dog owns its own Brain.)" << std::endl;
     std::cout << "dog1 idea[0]: " << dog1.getBrain()->ideas[0] << std::endl;
     std::cout << "dog2 idea[0]: " << dog2.getBrain()->ideas[0] << std::endl;
 
     dog2.getBrain()->ideas[0] = "sleep all day";
-    std::cout << "After modifying dog2:" << std::endl;
+    std::cout << "After modifying dog2 only:" << std::endl;
     std::cout << "dog1 idea[0]: " << dog1.getBrain()->ideas[0] << std::endl;
     std::cout << "dog2 idea[0]: " << dog2.getBrain()->ideas[0] << std::endl;
+    std::cout << "(dog1 unchanged => deep copy of Brain content, not shared.)" << std::endl;
 
-    std::cout << std::endl << "=== Deep copy test (Cat) ===" << std::endl;
+    std::cout << std::endl << "=== Deep copy: Cat (copy assignment) ===" << std::endl;
     Cat cat1;
     cat1.getBrain()->ideas[0] = "knock things off tables";
 
     Cat cat2;
     cat2 = cat1;
+    std::cout << "cat1.brain address: " << cat1.getBrain() << std::endl;
+    std::cout << "cat2.brain address: " << cat2.getBrain() << std::endl;
+    std::cout << "(Different addresses => assignment also deep-copies Brain.)" << std::endl;
     std::cout << "cat1 idea[0]: " << cat1.getBrain()->ideas[0] << std::endl;
     std::cout << "cat2 idea[0]: " << cat2.getBrain()->ideas[0] << std::endl;
 
     cat2.getBrain()->ideas[0] = "ignore everyone";
-    std::cout << "After modifying cat2:" << std::endl;
+    std::cout << "After modifying cat2 only:" << std::endl;
     std::cout << "cat1 idea[0]: " << cat1.getBrain()->ideas[0] << std::endl;
     std::cout << "cat2 idea[0]: " << cat2.getBrain()->ideas[0] << std::endl;
+    std::cout << "(cat1 unchanged => deep copy.)" << std::endl;
 
-    std::cout << std::endl << "=== Shallow copy test (WrongCat) ===" << std::endl;
+    std::cout << std::endl << "=== Shallow copy contrast: WrongCat ===" << std::endl;
+    std::cout << "WrongCat copies the Brain* only — both objects share one Brain." << std::endl;
     WrongCat wcat1;
     wcat1.brain->ideas[0] = "wrong idea";
 
@@ -85,7 +95,7 @@ int main()
     std::cout << "wcat2 idea[0]: " << wcat2.brain->ideas[0] << std::endl;
     std::cout << "(Both changed! Shallow copy — same Brain in memory)" << std::endl;
 
-    wcat2.brain = NULL; // to prevent double-delete crash
+    wcat2.brain = NULL; // avoid double-delete: both pointed at the same Brain
 
     std::cout << std::endl << "=== Destruction ===" << std::endl;
     return 0;
