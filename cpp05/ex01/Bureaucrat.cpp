@@ -6,7 +6,7 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 04:21:10 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/05/15 10:10:57 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/05/15 11:22:26 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -92,6 +92,6 @@ void Bureaucrat::signForm(Form &form) const
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat)
 {
-	out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << ".";
+	out << bureaucrat.getName() << " (bureaucrat grade " << bureaucrat.getGrade() << ")";
 	return out;
 }
