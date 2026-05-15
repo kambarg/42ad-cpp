@@ -1,3 +1,15 @@
+/******************************************************************************/
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/15 22:37:01 by gkambarb          #+#    #+#             */
+/*   Updated: 2026/05/15 22:37:02 by gkambarb         ###   ########.fr       */
+/*                                                                            */
+/******************************************************************************/
+
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
@@ -84,8 +96,8 @@ void AForm::checkExecution(Bureaucrat const &executor) const
 std::ostream &operator<<(std::ostream &out, const AForm &form)
 {
 	out << form.getName()
-		<< ", sign grade " << form.getGradeToSign()
+		<< " (sign grade " << form.getGradeToSign()
 		<< ", execute grade " << form.getGradeToExecute()
-		<< ", " << (form.getIsSigned() ? "signed" : "not signed");
+		<< ", " << (form.getIsSigned() ? "signed)" : "not signed)");
 	return out;
 }
