@@ -6,7 +6,7 @@
 #    By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/15 21:07:38 by gkambarb          #+#    #+#              #
-#    Updated: 2026/05/15 21:08:29 by gkambarb         ###   ########.fr        #
+#    Updated: 2026/05/15 23:43:01 by gkambarb         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -37,6 +37,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f *_shrubbery
 
 re: fclean all
 
