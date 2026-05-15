@@ -6,7 +6,7 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 04:25:14 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/05/14 04:25:16 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/05/15 10:55:13 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -25,7 +25,7 @@ int main(void)
 		alice.signForm(tax);
 		std::cout << tax << std::endl;
 	}
-	catch (std::exception &e)
+	catch (const std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
@@ -38,7 +38,7 @@ int main(void)
 		boss.signForm(contract);
 		std::cout << contract << std::endl;
 	}
-	catch (std::exception &e)
+	catch (const std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
@@ -51,7 +51,7 @@ int main(void)
 		intern.signForm(topSecret);
 		std::cout << topSecret << std::endl;
 	}
-	catch (std::exception &e)
+	catch (const std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
@@ -62,7 +62,7 @@ int main(void)
 		Form badHigh("Bad high", 0, 10);
 		std::cout << badHigh << std::endl;
 	}
-	catch (std::exception &e)
+	catch (const std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
@@ -72,7 +72,7 @@ int main(void)
 		Form badLow("Bad low", 10, 151);
 		std::cout << badLow << std::endl;
 	}
-	catch (std::exception &e)
+	catch (const std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}

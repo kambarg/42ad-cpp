@@ -6,7 +6,7 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 04:21:10 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/05/14 04:21:12 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/05/15 10:10:57 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -84,7 +84,7 @@ void Bureaucrat::signForm(Form &form) const
 		form.beSigned(*this);
 		std::cout << *this << " signed " << form << std::endl;
 	}
-	catch (std::exception &e)
+	catch (const std::exception &e)
 	{
 		std::cout << *this << " couldn't sign " << form << " because " << e.what() << std::endl;
 	}
