@@ -1,3 +1,15 @@
+/******************************************************************************/
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/15 23:39:00 by gkambarb          #+#    #+#             */
+/*   Updated: 2026/05/15 23:39:01 by gkambarb         ###   ########.fr       */
+/*                                                                            */
+/******************************************************************************/
+
 #ifndef PRESIDENTIALPARDONFORM_HPP
 # define PRESIDENTIALPARDONFORM_HPP
 

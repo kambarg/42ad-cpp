@@ -6,9 +6,16 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 22:36:54 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/05/15 22:36:55 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/05/15 23:32:27 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
+
+/* checkExecution vs execute: 
+- checkExecution is a helper function, pre-condition before the action. 
+Same for all forms => implemeted by base class.
+- execute describes specific action for each form => must be implemented by derived classes. 
+Calls checkExecution as pre-condition for execute.
+*/
 
 #ifndef AFORM_HPP
 # define AFORM_HPP

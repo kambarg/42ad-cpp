@@ -1,3 +1,15 @@
+/******************************************************************************/
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/15 23:37:16 by gkambarb          #+#    #+#             */
+/*   Updated: 2026/05/15 23:37:17 by gkambarb         ###   ########.fr       */
+/*                                                                            */
+/******************************************************************************/
+
 #include "ShrubberyCreationForm.hpp"
 #include "Bureaucrat.hpp"
 #include <fstream>

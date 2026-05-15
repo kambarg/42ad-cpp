@@ -1,3 +1,15 @@
+/******************************************************************************/
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/15 23:39:23 by gkambarb          #+#    #+#             */
+/*   Updated: 2026/05/15 23:39:24 by gkambarb         ###   ########.fr       */
+/*                                                                            */
+/******************************************************************************/
+
 #include "PresidentialPardonForm.hpp"
 #include "Bureaucrat.hpp"
 #include <iostream>
