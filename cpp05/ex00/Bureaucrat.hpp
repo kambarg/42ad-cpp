@@ -6,7 +6,7 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 03:09:42 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/06/24 09:58:11 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/06/24 11:57:39 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <string>
+# include <exception>
 
 class Bureaucrat
 {
