@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
@@ -6,12 +6,12 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 03:09:55 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/05/14 03:09:58 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/06/24 10:04:27 by gkambarb         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-
+// Orthodox Canonical Form
 Bureaucrat::Bureaucrat(void)
 	: _name("default"), _grade(150)
 {
@@ -42,16 +42,7 @@ Bureaucrat::~Bureaucrat(void)
 {
 }
 
-const char *Bureaucrat::GradeTooHighException::what(void) const throw()
-{
-	return "Grade too high!";
-}
-
-const char *Bureaucrat::GradeTooLowException::what(void) const throw()
-{
-	return "Grade too low!";
-}
-
+// Getters for name and grade	
 const std::string &Bureaucrat::getName(void) const
 {
 	return _name;
@@ -62,6 +53,7 @@ int Bureaucrat::getGrade(void) const
 	return _grade;
 }
 
+// Increment and decrement grade
 void Bureaucrat::incrementGrade(void)
 {
 	if (_grade <= 1)
@@ -76,6 +68,18 @@ void Bureaucrat::decrementGrade(void)
 	++_grade;
 }
 
+// Exception classes
+const char *Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return "Grade too high!";
+}
+
+const char *Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return "Grade too low!";
+}
+
+// Overload operator << for Bureaucrat class
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat)
 {
 	out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << ".";

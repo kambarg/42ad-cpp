@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 03:09:42 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/05/14 03:09:44 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/06/24 09:58:11 by gkambarb         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
@@ -29,23 +29,23 @@ public:
 	Bureaucrat &operator=(const Bureaucrat &other);
 	~Bureaucrat(void);
 
-	class GradeTooHighException : public std::exception
-	{
-	public:
-		virtual const char *what(void) const throw();
-	};
-
-	class GradeTooLowException : public std::exception
-	{
-	public:
-		virtual const char *what(void) const throw();
-	};
-
 	const std::string &getName(void) const;
 	int                getGrade(void) const;
 
 	void incrementGrade(void);
 	void decrementGrade(void);
+
+	class GradeTooHighException : public std::exception
+	{
+	public:
+		virtual const char *what() const throw();
+	};
+
+	class GradeTooLowException : public std::exception
+	{
+	public:
+		virtual const char *what() const throw();
+	};
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat);
