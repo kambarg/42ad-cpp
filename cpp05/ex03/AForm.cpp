@@ -43,17 +43,17 @@ AForm::~AForm(void)
 {
 }
 
-const char *AForm::GradeTooHighException::what(void) const throw()
+const char *AForm::GradeTooHighException::what() const throw()
 {
 	return "Grade too high!";
 }
 
-const char *AForm::GradeTooLowException::what(void) const throw()
+const char *AForm::GradeTooLowException::what() const throw()
 {
 	return "Grade too low!";
 }
 
-const char *AForm::FormNotSignedException::what(void) const throw()
+const char *AForm::FormNotSignedException::what() const throw()
 {
 	return "Form not signed!";
 }

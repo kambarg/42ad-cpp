@@ -40,19 +40,19 @@ public:
 	class GradeTooHighException : public std::exception
 	{
 	public:
-		virtual const char *what(void) const throw();
+		virtual const char *what() const throw();
 	};
 
 	class GradeTooLowException : public std::exception
 	{
 	public:
-		virtual const char *what(void) const throw();
+		virtual const char *what() const throw();
 	};
 
 	class FormNotSignedException : public std::exception
 	{
 	public:
-		virtual const char *what(void) const throw();
+		virtual const char *what() const throw();
 	};
 
 	const std::string &getName(void) const;
