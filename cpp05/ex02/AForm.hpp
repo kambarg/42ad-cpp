@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 22:36:54 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/05/15 23:32:27 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/06/25 08:19:39 by gkambarb         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 /* checkExecution vs execute: 
 - checkExecution is a helper function, pre-condition before the action. 
@@ -47,19 +47,19 @@ public:
 	class GradeTooHighException : public std::exception
 	{
 	public:
-		virtual const char *what(void) const throw();
+		virtual const char *what() const throw();
 	};
 
 	class GradeTooLowException : public std::exception
 	{
 	public:
-		virtual const char *what(void) const throw();
+		virtual const char *what() const throw();
 	};
 
 	class FormNotSignedException : public std::exception
 	{
 	public:
-		virtual const char *what(void) const throw();
+		virtual const char *what() const throw();
 	};
 
 	const std::string &getName(void) const;
@@ -68,6 +68,8 @@ public:
 	int getGradeToExecute(void) const;
 
 	void beSigned(const Bureaucrat &bureaucrat);
+	
+	// pure virtual function that makes AForm an abstract class
 	virtual void execute(Bureaucrat const &executor) const = 0;
 };
 
