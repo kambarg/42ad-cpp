@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ialashqa <ialashqa@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/15 17:21:27 by ialashqa          #+#    #+#             */
-/*   Updated: 2026/02/15 17:21:27 by ialashqa         ###   ########.fr       */
+/*   Created: 2026/06/26 10:39:54 by gkambarb          #+#    #+#             */
+/*   Updated: 2026/06/26 10:39:54 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

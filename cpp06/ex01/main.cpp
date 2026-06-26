@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Main.cpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ialashqa <ialashqa@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/26 17:20:27 by ialashqa          #+#    #+#             */
-/*   Updated: 2026/02/26 17:20:27 by ialashqa         ###   ########.fr       */
+/*   Created: 2026/06/26 10:48:53 by gkambarb          #+#    #+#             */
+/*   Updated: 2026/06/26 10:48:53 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main(void)
 {
     Data data;
-    data.name = "Ismail";
+    data.name = "Gaukhar";
     data.value = 42;
 
     std::cout << "--- Original Data ---" << std::endl;

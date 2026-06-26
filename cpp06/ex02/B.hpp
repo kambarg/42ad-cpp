@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   B.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ismailalashqar <ismailalashqar@student.    +#+  +:+       +#+        */
+/*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/11 17:14:01 by ismailalash       #+#    #+#             */
-/*   Updated: 2026/03/11 17:14:19 by ismailalash      ###   ########.fr       */
+/*   Created: 2026/06/26 10:52:36 by gkambarb          #+#    #+#             */
+/*   Updated: 2026/06/26 10:52:37 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

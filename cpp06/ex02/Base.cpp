@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Base.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ismailalashqar <ismailalashqar@student.    +#+  +:+       +#+        */
+/*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/11 22:01:13 by ismailalash       #+#    #+#             */
-/*   Updated: 2026/03/11 22:02:04 by ismailalash      ###   ########.fr       */
+/*   Created: 2026/06/26 10:52:28 by gkambarb          #+#    #+#             */
+/*   Updated: 2026/06/26 10:52:29 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

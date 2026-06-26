@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ialashqa <ialashqa@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/26 17:21:14 by ialashqa          #+#    #+#             */
-/*   Updated: 2026/02/26 17:21:14 by ialashqa         ###   ########.fr       */
+/*   Created: 2026/06/26 10:50:02 by gkambarb          #+#    #+#             */
+/*   Updated: 2026/06/26 10:50:02 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Functions.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ismailalashqar <ismailalashqar@student.    +#+  +:+       +#+        */
+/*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/15 19:16:11 by ismailalash       #+#    #+#             */
-/*   Updated: 2026/03/15 19:16:54 by ismailalash      ###   ########.fr       */
+/*   Created: 2026/06/26 10:52:00 by gkambarb          #+#    #+#             */
+/*   Updated: 2026/06/26 10:52:02 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

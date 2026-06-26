@@ -3,34 +3,34 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ialashqa <ialashqa@student.42abudhabi.a    +#+  +:+       +#+         #
+#    By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/02/26 17:20:45 by ialashqa          #+#    #+#              #
-#    Updated: 2026/02/26 17:20:45 by ialashqa         ###   ########.fr        #
+#    Created: 2026/06/26 10:50:33 by gkambarb          #+#    #+#              #
+#    Updated: 2026/06/26 10:50:33 by gkambarb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = run
 
-SRCS = Main.cpp Functions.cpp Base.cpp
-OBJS = ${SRCS:.cpp=.o}
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+SRC = main.cpp Functions.cpp Base.cpp
+OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-%.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+$(NAME): $(OBJ)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJS)
+	rm -f $(OBJ)
 
 fclean: clean
-	$(RM) $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
