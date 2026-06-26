@@ -12,13 +12,13 @@
 
 #include "ScalarConverter.hpp"
 
-int main(int ac, char **av)
+int main(int argc, char **argv)
 {
-    if (ac != 2)
+    if (argc != 2)
     {
         std::cout << "Usage: ./convert <literal>\n";
         return 1;
     }
-    ScalarConverter::convert(av[1]);
+    ScalarConverter::convert(argv[1]);
     return 0;
 }

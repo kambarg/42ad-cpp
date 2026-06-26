@@ -13,10 +13,7 @@
 #include "ScalarConverter.hpp"
 #include <cctype>
 
-/* ---------------------------------------------- */
-/*       Orthodox Canonical Form (private)        */
-/* ---------------------------------------------- */
-
+// Orthodox Canonical Form
 ScalarConverter::ScalarConverter()
 {
 }
@@ -36,10 +33,7 @@ ScalarConverter::~ScalarConverter()
 {
 }
 
-/* ---------------------------------------------- */
-/*              Detection (private)               */
-/* ---------------------------------------------- */
-
+// Type detection
 bool ScalarConverter::isPseudoLiteral(const std::string& str)
 {
     return (str == "nan" || str == "nanf" ||
@@ -125,10 +119,7 @@ bool ScalarConverter::isDouble(const std::string& str)
     return hasDecimal;
 }
 
-/* ---------------------------------------------- */
-/*                   Printing                     */
-/* ---------------------------------------------- */
-
+// Printing output
 void ScalarConverter::printChar(double value, bool impossible)
 {
     std::cout << "char: ";
@@ -180,10 +171,7 @@ void ScalarConverter::printDouble(double value, bool impossible)
     std::cout << "\n";
 }
 
-/* ---------------------------------------------- */
-/*             Pseudo-literal handler             */
-/* ---------------------------------------------- */
-
+// Pseudo-literal handler
 void ScalarConverter::handlePseudo(const std::string& str)
 {
     double value;
@@ -201,10 +189,7 @@ void ScalarConverter::handlePseudo(const std::string& str)
     printDouble(value, false);
 }
 
-/* ---------------------------------------------- */
-/*                Public interface                */
-/* ---------------------------------------------- */
-
+// Public interface - static method convert
 void ScalarConverter::convert(const std::string& literal)
 {
     if (isPseudoLiteral(literal))
