@@ -6,7 +6,7 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 04:19:27 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/06/24 11:57:50 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/06/29 11:51:22 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,35 +21,35 @@ class Form;
 
 class Bureaucrat
 {
-private:
-	const std::string	_name;
-	int					_grade;
+	private:
+		const std::string	_name;
+		int					_grade;
 
-public:
-	Bureaucrat(void);
-	Bureaucrat(const std::string &name, int grade);
-	Bureaucrat(const Bureaucrat &other);
-	Bureaucrat &operator=(const Bureaucrat &other);
-	~Bureaucrat(void);
-
-	class GradeTooHighException : public std::exception
-	{
 	public:
-		virtual const char *what() const throw();
-	};
+		Bureaucrat(void);
+		Bureaucrat(const std::string &name, int grade);
+		Bureaucrat(const Bureaucrat &other);
+		Bureaucrat &operator=(const Bureaucrat &other);
+		~Bureaucrat(void);
 
-	class GradeTooLowException : public std::exception
-	{
-	public:
-		virtual const char *what() const throw();
-	};
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
 
-	const std::string &getName(void) const;
-	int						getGrade(void) const;
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
 
-	void incrementGrade(void);
-	void decrementGrade(void);
-	void signForm(Form &form) const;
+		const std::string &getName(void) const;
+		int						getGrade(void) const;
+
+		void incrementGrade(void);
+		void decrementGrade(void);
+		void signForm(Form &form) const;
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat);

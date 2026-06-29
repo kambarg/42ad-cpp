@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 21:09:18 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/05/15 21:09:19 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/06/29 11:51:10 by gkambarb         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
@@ -34,14 +34,14 @@ public:
 
 	class GradeTooHighException : public std::exception
 	{
-	public:
-		virtual const char *what() const throw();
+		public:
+			virtual const char *what() const throw();
 	};
 
 	class GradeTooLowException : public std::exception
 	{
-	public:
-		virtual const char *what() const throw();
+		public:
+			virtual const char *what() const throw();
 	};
 
 	const std::string &getName(void) const;
