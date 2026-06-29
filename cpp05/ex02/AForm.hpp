@@ -6,7 +6,7 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 22:36:54 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/06/29 11:50:24 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/06/29 12:12:15 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ class AForm
 		AForm(const std::string &name, int gradeToSign, int gradeToExecute);
 		AForm(const AForm &other);
 		AForm &operator=(const AForm &other);
+		// virtual destructor chain runs correctly: derived first, then base
 		virtual ~AForm(void);
 
 		class GradeTooHighException : public std::exception
