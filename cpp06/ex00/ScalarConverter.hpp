@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
@@ -6,20 +6,14 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/26 10:39:34 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/06/26 10:39:34 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/09/21 15:01:10 by gkambarb         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #ifndef SCALARCONVERTER_HPP
 #define SCALARCONVERTER_HPP
 
-#include <iostream>
 #include <string>
-#include <climits>
-#include <cfloat>
-#include <cstdlib>
-#include <limits>
-#include <cmath>
 
 // ScalarConverter class cannot be instantiated. 
 // It has one public static method convert 

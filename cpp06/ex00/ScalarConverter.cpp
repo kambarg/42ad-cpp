@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
@@ -6,12 +6,18 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/26 10:39:54 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/06/26 10:39:54 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/09/21 15:06:05 by gkambarb         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "ScalarConverter.hpp"
+
 #include <cctype>
+#include <climits>
+#include <cmath>
+#include <cstdlib>
+#include <iostream>
+#include <limits>
 
 // Orthodox Canonical Form
 ScalarConverter::ScalarConverter()
