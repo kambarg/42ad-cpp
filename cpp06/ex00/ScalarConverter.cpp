@@ -16,6 +16,7 @@
 #include <climits>
 #include <cmath>
 #include <cstdlib>
+#include <iomanip>
 #include <iostream>
 #include <limits>
 
@@ -50,7 +51,8 @@ bool ScalarConverter::isPseudoLiteral(const std::string& str)
 
 bool ScalarConverter::isChar(const std::string& str)
 {
-    return (str.length() == 1 && !std::isdigit(str[0]));
+    return (str.length() == 1
+            && !std::isdigit(static_cast<unsigned char>(str[0])));
 }
 
 bool ScalarConverter::isInt(const std::string& str)
@@ -65,7 +67,7 @@ bool ScalarConverter::isInt(const std::string& str)
         return false;
     while (i < str.length())
     {
-        if (!std::isdigit(str[i]))
+        if (!std::isdigit(static_cast<unsigned char>(str[i])))
             return false;
         i++;
     }
@@ -76,6 +78,7 @@ bool ScalarConverter::isFloat(const std::string& str)
 {
     size_t len = str.length();
     bool   hasDecimal = false;
+    bool   hasDigit = false;
     size_t i = 0;
 
     if (len < 2 || str[len - 1] != 'f')
@@ -92,16 +95,19 @@ bool ScalarConverter::isFloat(const std::string& str)
                 return false;
             hasDecimal = true;
         }
-        else if (!std::isdigit(str[i]))
+        else if (!std::isdigit(static_cast<unsigned char>(str[i])))
             return false;
+        else
+            hasDigit = true;
         i++;
     }
-    return hasDecimal;
+    return (hasDecimal && hasDigit);
 }
 
 bool ScalarConverter::isDouble(const std::string& str)
 {
     bool   hasDecimal = false;
+    bool   hasDigit = false;
     size_t i = 0;
 
     if (str.empty())
@@ -118,29 +124,44 @@ bool ScalarConverter::isDouble(const std::string& str)
                 return false;
             hasDecimal = true;
         }
-        else if (!std::isdigit(str[i]))
+        else if (!std::isdigit(static_cast<unsigned char>(str[i])))
             return false;
+        else
+            hasDigit = true;
         i++;
     }
-    return hasDecimal;
+    return (hasDecimal && hasDigit);
 }
 
 // Printing output
-void ScalarConverter::printChar(double value, bool impossible)
+// Beyond 1e16 a whole value needs more digits than fixed notation can show
+// readably, so it is left to scientific notation instead of gaining a ".0".
+bool ScalarConverter::isWholeNumber(double value)
 {
+    return (value == value && std::fabs(value) < 1e16
+            && std::fmod(value, 1.0) == 0.0);
+}
+
+void ScalarConverter::printChar(double value)
+{
+    char c;
+
     std::cout << "char: ";
-    if (impossible || value != value || value < 0 || value > 127)
+    if (value != value || value < 0 || value > 127)
         std::cout << "impossible\n";
     else if (value < 32 || value == 127)
         std::cout << "Non displayable\n";
     else
-        std::cout << "'" << static_cast<char>(static_cast<int>(value)) << "'\n";
+    {
+        c = static_cast<char>(static_cast<int>(value));
+        std::cout << "'" << c << "'\n";
+    }
 }
 
-void ScalarConverter::printInt(double value, bool impossible)
+void ScalarConverter::printInt(double value)
 {
     std::cout << "int: ";
-    if (impossible || value != value
+    if (value != value
         || value < static_cast<double>(INT_MIN)
         || value > static_cast<double>(INT_MAX))
         std::cout << "impossible\n";
@@ -148,33 +169,32 @@ void ScalarConverter::printInt(double value, bool impossible)
         std::cout << static_cast<int>(value) << "\n";
 }
 
-void ScalarConverter::printFloat(double value, bool impossible)
+void ScalarConverter::printFloat(double value)
 {
-    std::cout << "float: ";
-    if (impossible)
-    {
-        std::cout << "impossible\n";
-        return;
-    }
     float f = static_cast<float>(value);
-    std::cout << f;
-    if (f == f && std::fmod(static_cast<double>(f), 1.0) == 0.0)
-        std::cout << ".0";
-    std::cout << "f\n";
+
+    std::cout << "float: ";
+    if (isWholeNumber(static_cast<double>(f)))
+        std::cout << std::fixed << std::setprecision(1) << f << "f\n";
+    else
+    {
+        std::cout.unsetf(std::ios::floatfield);
+        std::cout << std::setprecision(std::numeric_limits<float>::digits10)
+                  << f << "f\n";
+    }
 }
 
-void ScalarConverter::printDouble(double value, bool impossible)
+void ScalarConverter::printDouble(double value)
 {
     std::cout << "double: ";
-    if (impossible)
+    if (isWholeNumber(value))
+        std::cout << std::fixed << std::setprecision(1) << value << "\n";
+    else
     {
-        std::cout << "impossible\n";
-        return;
+        std::cout.unsetf(std::ios::floatfield);
+        std::cout << std::setprecision(std::numeric_limits<double>::digits10)
+                  << value << "\n";
     }
-    std::cout << value;
-    if (value == value && std::fmod(value, 1.0) == 0.0)
-        std::cout << ".0";
-    std::cout << "\n";
 }
 
 // Pseudo-literal handler
@@ -189,10 +209,10 @@ void ScalarConverter::handlePseudo(const std::string& str)
     else
         value = -std::numeric_limits<double>::infinity();
 
-    printChar(value, true);
-    printInt(value, true);
-    printFloat(value, false);
-    printDouble(value, false);
+    printChar(value);
+    printInt(value);
+    printFloat(value);
+    printDouble(value);
 }
 
 // Public interface - static method convert
@@ -205,20 +225,10 @@ void ScalarConverter::convert(const std::string& literal)
     }
 
     double value;
-    bool   impossible = false;
 
     if (isChar(literal))
-        value = static_cast<double>(literal[0]);
-    else if (isInt(literal))
-    {
-        long l = std::strtol(literal.c_str(), NULL, 10);
-        if (l < INT_MIN || l > INT_MAX)
-            impossible = true;
-        value = static_cast<double>(l);
-    }
-    else if (isFloat(literal))
-        value = static_cast<double>(std::strtod(literal.c_str(), NULL));
-    else if (isDouble(literal))
+        value = static_cast<double>(static_cast<unsigned char>(literal[0]));
+    else if (isInt(literal) || isFloat(literal) || isDouble(literal))
         value = std::strtod(literal.c_str(), NULL);
     else
     {
@@ -229,8 +239,8 @@ void ScalarConverter::convert(const std::string& literal)
         return;
     }
 
-    printChar(value, impossible);
-    printInt(value, impossible);
-    printFloat(value, impossible);
-    printDouble(value, impossible);
+    printChar(value);
+    printInt(value);
+    printFloat(value);
+    printDouble(value);
 }

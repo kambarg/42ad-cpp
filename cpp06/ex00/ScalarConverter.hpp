@@ -35,10 +35,11 @@ class ScalarConverter
         static bool isDouble(const std::string& str);
 
         // Printing
-        static void printChar(double value, bool impossible);
-        static void printInt(double value, bool impossible);
-        static void printFloat(double value, bool impossible);
-        static void printDouble(double value, bool impossible);
+        static bool isWholeNumber(double value);
+        static void printChar(double value);
+        static void printInt(double value);
+        static void printFloat(double value);
+        static void printDouble(double value);
         static void handlePseudo(const std::string& str);
 
     public:
