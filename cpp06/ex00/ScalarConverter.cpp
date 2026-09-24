@@ -13,7 +13,6 @@
 #include "ScalarConverter.hpp"
 
 #include <cctype>
-#include <climits>
 #include <cmath>
 #include <iomanip>
 #include <iostream>
@@ -207,10 +206,10 @@ void ScalarConverter::fromFloat(const std::string& str)
     }
 
     // NaN fails every comparison, so it is rejected by these checks.
-    // static_cast<float>(INT_MAX) rounds up to 2^31, hence the strict '<'.
+    // The int max cast to float rounds up to 2^31, hence the strict '<'.
     bool charOk = (f >= 0.0f && f <= 127.0f);
-    bool intOk = (f >= static_cast<float>(INT_MIN)
-                  && f < static_cast<float>(INT_MAX));
+    bool intOk = (f >= static_cast<float>(std::numeric_limits<int>::min())
+                  && f < static_cast<float>(std::numeric_limits<int>::max()));
     char c = 0;
     int  i = 0;
 
@@ -251,8 +250,8 @@ void ScalarConverter::fromDouble(const std::string& str)
     }
 
     bool charOk = (d >= 0.0 && d <= 127.0);
-    bool intOk = (d >= static_cast<double>(INT_MIN)
-                  && d <= static_cast<double>(INT_MAX));
+    bool intOk = (d >= static_cast<double>(std::numeric_limits<int>::min())
+                  && d <= static_cast<double>(std::numeric_limits<int>::max()));
     bool floatOk = (d != d || std::fabs(d) == std::numeric_limits<double>::infinity()
                     || std::fabs(d) <= std::numeric_limits<float>::max());
     char  c = 0;
