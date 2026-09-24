@@ -13,7 +13,6 @@
 #ifndef SCALARCONVERTER_HPP
 #define SCALARCONVERTER_HPP
 
-#include <limits>
 #include <string>
 
 // ScalarConverter class cannot be instantiated. 
@@ -47,8 +46,7 @@ class ScalarConverter
         static void printChar(char c, bool possible);
         static void printInt(int i, bool possible);
         static void printFloat(float f, bool possible);
-        static void printDouble(double d, bool possible,
-                                int precision = std::numeric_limits<double>::digits10);
+        static void printDouble(double d, bool possible, int precision);
         static void printImpossible();
 
     public:

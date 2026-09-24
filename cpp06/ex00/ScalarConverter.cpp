@@ -154,7 +154,8 @@ void ScalarConverter::fromChar(const std::string& str)
     printChar(c, true);
     printInt(static_cast<int>(c), true);
     printFloat(static_cast<float>(c), true);
-    printDouble(static_cast<double>(c), true);
+    printDouble(static_cast<double>(c), true,
+                std::numeric_limits<double>::digits10);
 }
 
 void ScalarConverter::fromInt(const std::string& str)
@@ -178,7 +179,8 @@ void ScalarConverter::fromInt(const std::string& str)
     printChar(c, charOk);
     printInt(i, true);
     printFloat(static_cast<float>(i), true);
-    printDouble(static_cast<double>(i), true);
+    printDouble(static_cast<double>(i), true,
+                std::numeric_limits<double>::digits10);
 }
 
 void ScalarConverter::fromFloat(const std::string& str)
@@ -270,7 +272,7 @@ void ScalarConverter::fromDouble(const std::string& str)
     printChar(c, charOk);
     printInt(i, intOk);
     printFloat(f, floatOk);
-    printDouble(d, true);
+    printDouble(d, true, std::numeric_limits<double>::digits10);
 }
 
 // Printing
