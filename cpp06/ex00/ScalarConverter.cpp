@@ -162,6 +162,7 @@ void ScalarConverter::fromInt(const std::string& str)
     std::istringstream iss(str);
     int                i;
 
+    // fails if it is outside INT_MIN…INT_MAX
     iss >> i;
     if (iss.fail())
     {
@@ -197,6 +198,7 @@ void ScalarConverter::fromFloat(const std::string& str)
         // Extraction stops at the trailing 'f'.
         std::istringstream iss(str);
 
+        // fails if the value underflow to a fake zero
         iss >> f;
         if (iss.fail() || (f == 0.0f && hasNonZeroMantissa(str)))
         {
@@ -205,8 +207,6 @@ void ScalarConverter::fromFloat(const std::string& str)
         }
     }
 
-    // NaN fails every comparison, so it is rejected by these checks.
-    // The int max cast to float rounds up to 2^31, hence the strict '<'.
     bool charOk = (f >= 0.0f && f <= 127.0f);
     bool intOk = (f >= static_cast<float>(std::numeric_limits<int>::min())
                   && f < static_cast<float>(std::numeric_limits<int>::max()));
@@ -221,8 +221,7 @@ void ScalarConverter::fromFloat(const std::string& str)
     printChar(c, charOk);
     printInt(i, intOk);
     printFloat(f, true);
-    // A float only carries float precision; more digits would show its
-    // rounding error (4.2f would print as 4.19999980926514).
+    // A float only carries float precision => print double with float precision
     printDouble(static_cast<double>(f), true,
                 std::numeric_limits<float>::digits10);
 }
@@ -241,6 +240,7 @@ void ScalarConverter::fromDouble(const std::string& str)
     {
         std::istringstream iss(str);
 
+        // fails if the value underflow to a fake zero
         iss >> d;
         if (iss.fail() || (d == 0.0 && hasNonZeroMantissa(str)))
         {
@@ -252,6 +252,7 @@ void ScalarConverter::fromDouble(const std::string& str)
     bool charOk = (d >= 0.0 && d <= 127.0);
     bool intOk = (d >= static_cast<double>(std::numeric_limits<int>::min())
                   && d <= static_cast<double>(std::numeric_limits<int>::max()));
+    // filters out doubles that are too large for a float
     bool floatOk = (d != d || std::fabs(d) == std::numeric_limits<double>::infinity()
                     || std::fabs(d) <= std::numeric_limits<float>::max());
     char  c = 0;
@@ -264,7 +265,7 @@ void ScalarConverter::fromDouble(const std::string& str)
         i = static_cast<int>(d);
     if (floatOk)
         f = static_cast<float>(d);
-    // Too small for a float: the cast underflowed to zero.
+    // filters out doubles that are too small for a float
     if (floatOk && f == 0.0f && d != 0.0)
         floatOk = false;
 
