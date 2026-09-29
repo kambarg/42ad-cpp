@@ -5,12 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/26 10:48:53 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/06/26 10:48:53 by gkambarb         ###   ########.fr       */
+/*   Created: 2026/09/29 13:40:21 by gkambarb          #+#    #+#             */
+/*   Updated: 2026/09/29 13:40:21 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
+# include <iostream>
 
 int main(void)
 {

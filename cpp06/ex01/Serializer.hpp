@@ -5,15 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/26 10:50:02 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/06/26 10:50:02 by gkambarb         ###   ########.fr       */
+/*   Created: 2026/09/29 13:42:55 by gkambarb          #+#    #+#             */
+/*   Updated: 2026/09/29 13:42:55 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SERIALIZER_HPP
 # define SERIALIZER_HPP
 
-# include <iostream>
 # include <stdint.h>
 # include "Data.hpp"
 
