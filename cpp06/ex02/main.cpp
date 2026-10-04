@@ -6,7 +6,7 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/26 10:51:45 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/06/26 10:51:46 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/10/04 15:31:10 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "B.hpp"
 #include "C.hpp"
 #include <cstdlib>
-#include <ctime> 
+#include <ctime>
 #include <iostream>
 
 int main(void)
@@ -24,7 +24,8 @@ int main(void)
     Base *a = new A();
     Base *b = new B();
     Base *c = new C();
-
+    Base *x = new Base;
+    
     std::cout << "A -> Pointer: ";
     identify(a);
     std::cout << "A -> Reference: ";
@@ -40,9 +41,15 @@ int main(void)
     std::cout << "C -> Reference: ";
     identify(*c);
 
+    std::cout << "X -> Pointer: ";
+    identify(x);
+    std::cout << "X -> Reference: ";
+    identify(*x);
+
     delete a;
     delete b;
     delete c;
+    delete x;
 
     std::cout << "\n=== Random Types Test ===" << std::endl;
     for (int i = 1; i <= 5; i++)

@@ -6,14 +6,14 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/26 10:52:13 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/06/26 10:52:15 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/10/04 16:17:21 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef C_HPP
 # define C_HPP
 
-#include "Base.hpp"
+# include "Base.hpp"
 
 class C : public Base
 {

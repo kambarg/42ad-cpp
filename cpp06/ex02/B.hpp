@@ -6,14 +6,14 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/26 10:52:36 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/06/26 10:52:37 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/10/04 16:17:07 by gkambarb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef B_HPP
 # define B_HPP
 
-#include "Base.hpp"
+# include "Base.hpp"
 
 class B : public Base
 {
