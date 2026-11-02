@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: gkambarb <gkambarb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 21:57:00 by gkambarb          #+#    #+#             */
-/*   Updated: 2026/10/28 12:26:51 by gkambarb         ###   ########.fr       */
+/*   Updated: 2026/11/02 14:24:47 by gkambarb         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "Array.hpp"
 #include <iostream>
@@ -80,8 +80,10 @@ int main(void)
     std::cout << "original[1]: " << numbers[1] << std::endl;
     std::cout << "assigned[1]: " << assigned[1] << std::endl;
 
-    std::cout << "self-assignment:" << std::endl;
-    assigned = assigned;
+    td::cout << "self-assignment:" << std::endl;
+    Array<int>& same = assigned;
+
+    assigned = same;
     std::cout << "self-assign size: " << assigned.size() << std::endl;
 
     
